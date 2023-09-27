@@ -18,6 +18,7 @@ const [display, setDisplay] = useState("React Calculator");
           display={display}
           setDisplay={setDisplay} />
         </div>
+        <div id="name">Bobby De Luna</div>
       </div>
     </div>
   );

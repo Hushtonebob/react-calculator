@@ -79,4 +79,84 @@ border-radius: 10%;
   background-image: linear-gradient(rgb(202, 81, 218), rgb(175, 88, 88));
 }
 
+.otherButtonPad{
+position: relative;
+display: grid;
+grid-template-columns: 60px 60px;
+gap: 20px;
+float: right;
+right:45px;
+bottom: 275px;
+}
+
+.otherButtons{
+  height: 60px;
+  width:60px;
+  background-image: linear-gradient(rgb(175, 88, 88),rgb(202, 81, 218));    
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 50px;
+  cursor: pointer;
+  border: none;
+}
+
+.otherButtons:hover{
+  background-image: linear-gradient(rgb(202, 81, 218), rgb(175, 88, 88));
+}
+
+#eqaul{
+  position: relative;
+  height: 60px;
+  width:140px;
+  background-image: linear-gradient(rgb(175, 88, 88),rgb(202, 81, 218));    
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 50px;
+  cursor: pointer;
+  border: none;
+  float: right;
+  left:15px;
+  bottom:35px;
+}
+
+#equal:hover{
+  background-image: linear-gradient(rgb(202, 81, 218), rgb(175, 88, 88));
+}
+
+
+#AC{
+  position: relative;
+  height: 140px;
+  width:60px;
+  background-image: linear-gradient(rgb(175, 88, 88),rgb(202, 81, 218));    
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 30px;
+  cursor: pointer;
+  border: none;
+  left:345px;
+  bottom: 115px;
+}
+
+#AC:hover{
+  background-image: linear-gradient(rgb(202, 81, 218), rgb(175, 88, 88));
+}
+
+#name{
+  position: relative;
+  font-style: italic;
+  color: rgb(252, 243, 232);
+  transform: rotate(90deg);
+  font-size: 25px;
+  width: 80%;
+  bottom:200px;
+  float: right;
+  left: 155px;
+}
 
