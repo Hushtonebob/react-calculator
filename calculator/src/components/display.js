@@ -1,8 +1,10 @@
-export default function Display(){
+export default function Display({
+    display
+}){
 return(
     <div className="displayContainer">
         <div id="display">
-            100
+            {display}
         </div>
     </div>
 )

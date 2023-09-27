@@ -1,9 +1,24 @@
 export default function NumberButton({
-    num
+    num, setDisplay, display
 }){
+
+const change = (e)=>{
+    console.log(e.target.value);
+    if(display==="React Calculator"){
+        let blam = e.target.value;
+        let newBlam = blam.toString();
+        setDisplay(newBlam);
+    }
+    else{
+        let blam = e.target.value;
+        let newBlam = blam.toString();
+        setDisplay(display+newBlam);
+    }
+}
+
     return(
-        <div className="numberButton">
+        <button className="numberButton" value={num} onClick={change}>
             {num}
-        </div>
+        </button>
     )
 }
