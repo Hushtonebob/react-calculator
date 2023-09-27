@@ -1,0 +1,64 @@
+
+.App{
+  position:fixed;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+background-image: linear-gradient(rgb(202, 81, 218), rgb(175, 88, 88));  
+  align-items: center;
+}
+
+.container{
+position: relative;
+width: 500px;
+height: 500px;
+margin: auto;
+top: 50px;
+background-color: rgb(252, 243, 232);
+border-radius: 10%;
+}
+
+.displayContainer{
+  position:relative;
+  background-color: black;
+  width: 90%;
+  height:15%;
+  top:5%;
+  margin: auto;
+  border-radius: 40px;
+  color: aliceblue;
+  overflow: hidden;
+}
+
+#display{
+  position:relative;
+  width:90%;
+  margin: auto;
+  height: 100%;
+  text-align: right;
+  font-size:55px;
+  top: 5px;
+}
+
+.numberPad{
+  position: relative;
+  width:90%;
+  margin: auto;
+  height:70%;
+  background-color: black;
+  top: 45px;
+  border-radius: 40px;
+}
+
+.numberButton{
+  position: relative;
+  display: grid;
+  height: 100px;
+  width: 100px;
+  background-color: antiquewhite;
+}
+
+
