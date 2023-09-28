@@ -1,6 +1,11 @@
 
 
-export default function ACEqual({setDisplay,display, AcC, setClear}){
+export default function ACEqual({
+    setDisplay,
+    display, 
+    AcC, 
+    setClear
+}){
         
     const clear = () => {
         if(display === "React Calculator"){
