@@ -33,7 +33,10 @@ export default function ButtonPad({setDisplay, display}){
                 {moreButtons}
             </div>
             <div className="ACEqual">
-                <ACEqual />
+                <ACEqual 
+                setDisplay={setDisplay}
+                display={display}
+                />
             </div>
         </div>
     )
