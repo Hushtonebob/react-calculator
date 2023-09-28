@@ -1,11 +1,13 @@
-import ACEqual from "./Equal";
+import ACEqual from "./ACEqual";
 import OtherButtons from "./OtherButtons";
 import NumberButtons from "./numberButton";
+import { useState } from "react";
 
 export default function ButtonPad({setDisplay, display}){
     
     const numbers = [1,2,3,4,5,6,7,8,9,0,"."];
     const mathFunctions = ["+", "-","*","/","%"];
+    const [clear, setClear] = useState("AC");
 
     const buttons = numbers.map((num)=>{
         return(
@@ -14,6 +16,7 @@ export default function ButtonPad({setDisplay, display}){
             num={num} 
             setDisplay={setDisplay}
             display={display}
+            setClear={setClear}
             />
         )
     })
@@ -34,8 +37,11 @@ export default function ButtonPad({setDisplay, display}){
             </div>
             <div className="ACEqual">
                 <ACEqual 
+                key={"3"}
                 setDisplay={setDisplay}
                 display={display}
+                AcC={clear}
+                setClear={setClear}
                 />
             </div>
         </div>

@@ -1,5 +1,5 @@
 export default function NumberButton({
-    num, setDisplay, display
+    num, setDisplay, display, setClear
 }){
 
 const change = (e)=>{
@@ -8,6 +8,7 @@ const change = (e)=>{
         let blam = e.target.value;
         let newBlam = blam.toString();
         setDisplay(newBlam);
+        setClear("C");
     }
     else{
         let blam = e.target.value;
