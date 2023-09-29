@@ -1,56 +1,80 @@
-import ACEqual from "./ACEqual";
-import OtherButtons from "./OtherButtons";
-import NumberButtons from "./numberButton";
+
 import { useState } from "react";
 
 export default function ButtonPad({setDisplay, display}){
     
-    const numbers = [1,2,3,4,5,6,7,8,9,0,"."];
-    const mathFunctions = ["+", "-","*","/","%"];
     const [clear, setClear] = useState("AC");
-    const [prevNum, setPrevNum] = useState("");
-    const [mathAction, setMathAction] = useState("");
+    const [mathWord, setMathWord] = useState();
+    const [prevNum, setPrevNum] = useState();
+    const [plus, setPlus] = useState("otherButton");
 
-    const buttons = numbers.map((num)=>{
-        return(
-            <NumberButtons
-            key={num} 
-            num={num} 
-            setDisplay={setDisplay}
-            display={display}
-            setClear={setClear}
-            />
-        )
-    });
+    const changeDisplay=(e)=>{
+        console.log(e.target.value);
+        if(display==="React Calculator"){
+            let blam = e.target.value;
+            let newBlam = blam.toString();
+            setDisplay(newBlam);
+            setClear("C");
+        }
+        else{
+            let blam = e.target.value;
+            let newBlam = blam.toString();
+            setDisplay(display+newBlam);}}
 
-    const moreButtons = mathFunctions.map((other)=>{
-        return(
-        <OtherButtons
-        other={other}
-        display={display}
-        setDisplay={setDisplay}
-        setPrevNum={setPrevNum}
-        setMathAction={setMathAction}
-        />
-    )});
+    const clearPress=()=>{
+        setDisplay("React Calculator");
+        setClear("AC");
+        setPlus("otherButton");
+    };
+
+    const plusButton=(e)=>{
+        if(display==="React Calculator"){
+        }else{
+            setPlus("highlight");
+            setPrevNum(display);
+            setDisplay('');
+            setMathWord(e.target.value);  
+        }}
+
+        const solve=()=>{
+            if(mathWord==='unidentified'){
+            }
+            //Addition
+            else if(mathWord==="+"){
+                if(display===''){
+                    setDisplay(prevNum);
+                    setPlus('otherButton');
+                }else{                
+                    setDisplay(parseFloat(display)+parseFloat(prevNum));
+                    setPlus("otherButton");
+                }
+            }
+        }
 
     return(
         <div>
-            <div className="buttonPad">
-                {buttons}
+            <div className="buttonPad" onClick={changeDisplay}>
+                <button className="numberButton" value={1}>1</button>
+                <button className="numberButton" value={2}>2</button>
+                <button className="numberButton" value={3}>3</button>
+                <button className="numberButton" value={4}>4</button>
+                <button className="numberButton" value={5}>5</button>
+                <button className="numberButton" value={6}>6</button>
+                <button className="numberButton" value={7}>7</button>
+                <button className="numberButton" value={8}>8</button>
+                <button className="numberButton" value={9}>9</button>
+                <button className="numberButton" value={0}>0</button>
+                <button className="numberButton" value={"."}>.</button>
             </div>
             <div className="otherButtonPad">
-                {moreButtons}
+                <button className={plus} value={"+"} onClick={plusButton}>+</button>
+                <button className={""}value={"-"}>-</button>
+                <button className="otherButton"value={"X"}>X</button>
+                <button className="otherButton"value={"÷"}>÷</button>
+                <button className="otherButton"value={"%"}>%</button>
             </div>
-            <div className="ACEqual">
-                <ACEqual 
-                key={"3"}
-                setDisplay={setDisplay}
-                display={display}
-                AcC={clear}
-                setClear={setClear}
-                />
-            </div>
+            <button id="equal" onClick={solve}>=</button>
+            <button id="AC" onClick={clearPress}>{clear}</button>
         </div>
     )
 }

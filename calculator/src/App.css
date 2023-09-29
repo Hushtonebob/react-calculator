@@ -89,7 +89,7 @@ right:45px;
 bottom: 275px;
 }
 
-.otherButtons{
+.otherButton{
   height: 60px;
   width:60px;
   background-image: linear-gradient(rgb(175, 88, 88),rgb(202, 81, 218));    
@@ -102,11 +102,11 @@ bottom: 275px;
   border: none;
 }
 
-.otherButtons:hover{
+.otherButton:hover{
   background-image: linear-gradient(rgb(202, 81, 218), rgb(175, 88, 88));
 }
 
-#eqaul{
+#equal{
   position: relative;
   height: 60px;
   width:140px;
