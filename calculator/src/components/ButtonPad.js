@@ -4,52 +4,37 @@ import { useState } from "react";
 export default function ButtonPad({setDisplay, display}){
     
     const [clear, setClear] = useState("AC");
-    const [mathWord, setMathWord] = useState();
     const [prevNum, setPrevNum] = useState();
+    const [secret, setSecret] = useState();
+
     const [plus, setPlus] = useState("otherButton");
+    const [minus, setMinus] = useState("otherButton");
+    const [multiply, setMultiply] = useState("otherButton");
+    const [division, setDivision] = useState("otherButton");
 
     const changeDisplay=(e)=>{
         console.log(e.target.value);
-        if(display==="React Calculator"){
-            let blam = e.target.value;
-            let newBlam = blam.toString();
-            setDisplay(newBlam);
-            setClear("C");
-        }
+        if(e.target.value==="undefined"){}
         else{
-            let blam = e.target.value;
-            let newBlam = blam.toString();
-            setDisplay(display+newBlam);}}
-
-    const clearPress=()=>{
-        setDisplay("React Calculator");
-        setClear("AC");
-        setPlus("otherButton");
-    };
-
-    const plusButton=(e)=>{
-        if(display==="React Calculator"){
-        }else{
-            setPlus("highlight");
-            setPrevNum(display);
-            setDisplay('');
-            setMathWord(e.target.value);  
-        }}
-
-        const solve=()=>{
-            if(mathWord==='unidentified'){
-            }
-            //Addition
-            else if(mathWord==="+"){
-                if(display===''){
-                    setDisplay(prevNum);
-                    setPlus('otherButton');
-                }else{                
-                    setDisplay(parseFloat(display)+parseFloat(prevNum));
-                    setPlus("otherButton");
+            if(display==="React Calculator"){
+                if(e.target.value==="."){
+                    setDisplay("0.");
+                    setClear("C");
                 }
+                else{
+                setDisplay(parseFloat(e.target.value));
+                setClear("C");
+            };
             }
-        }
+            else if(display==="0."|| e.target.value==="."){}
+            else{
+                let blam = e.target.value;
+                let newBlam = blam.toString();
+                setDisplay(parseFloat(display.toString()+newBlam));
+            }
+        }};
+
+
 
     return(
         <div>
@@ -66,15 +51,15 @@ export default function ButtonPad({setDisplay, display}){
                 <button className="numberButton" value={0}>0</button>
                 <button className="numberButton" value={"."}>.</button>
             </div>
-            <div className="otherButtonPad">
-                <button className={plus} value={"+"} onClick={plusButton}>+</button>
-                <button className={""}value={"-"}>-</button>
-                <button className="otherButton"value={"X"}>X</button>
-                <button className="otherButton"value={"÷"}>÷</button>
+            <div className="otherButtonPad" onClick={(e)=>console.log(e.target.value)}>
+                <button className={plus}value="+">+</button>
+                <button className={minus}value="-">-</button>
+                <button className={multiply}value={"X"}>X</button>
+                <button className={division}value={"÷"}>÷</button>
                 <button className="otherButton"value={"%"}>%</button>
             </div>
-            <button id="equal" onClick={solve}>=</button>
-            <button id="AC" onClick={clearPress}>{clear}</button>
+            <button id="equal">=</button>
+            <button id="AC">{clear}</button>
         </div>
     )
 }
