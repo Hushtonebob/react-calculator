@@ -1,6 +1,8 @@
 import './App.css';
+import './style/display.css';
+import './style/buttonPad.css';
 import Display from './components/display.js';
-import ButtonPad from './components/ButtonPad';
+import ButtonPad from './components/buttonPad';
 import { useState } from 'react';
 
 function App() {
